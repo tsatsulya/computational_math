@@ -16,6 +16,9 @@ The step(h value) is depends as $h_n = \frac{2}{2^{n}} = \frac{1}{2^{n-1}} = 2^{
 
 * $\sqrt{(x+3)}$ *->* $\frac{1}{2}\cdot \frac{1}{\sqrt{(x+3)}}$
 
+Graphics(around x=0) of these functions you can found below:
+
+![](img/funcGraph.png)
 ### List of approximation formulas:
 *  $\frac{f(x+h) - f(x)}{h}$
 
