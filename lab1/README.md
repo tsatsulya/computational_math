@@ -4,6 +4,7 @@
 
 The paper investigates the dependences of the absolute errors in the calculation of derivative functions by the numerical method. 5 functions are used for research, 5 approximation formulas are used for modeling.
 
+The step(h value) is depends as $h_n = \frac{2}{2^{n}} = \frac{1}{2^{n-1}} = 2^{1-n}$; $n = \overline{1,21}$
 ### List of using functions(near derivatives):
 * $sin(x^2)$ *->* $cos(x^2)\cdot 2x$
 
