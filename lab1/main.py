@@ -37,11 +37,10 @@ def Deriv5(exFunc, point, delta):
     return (3/2)*term - (3/5)*term2 + (1/10)*term3
 
 # Approximation derivative List
-ADList = [Deriv1, Deriv2, Deriv3, Deriv4, Deriv5]
-FuncList =  [Sin, CosSin, ExpSinCos, LogArg, SqrtArg]
-RDList = [SinDeriv, CosSinDeriv, ExpSinCosDeriv, LogArgDeriv, SqrtArg]
+ADList      = [Deriv1, Deriv2, Deriv3, Deriv4, Deriv5]
+FuncList    = [Sin, CosSin, ExpSinCos, LogArg, SqrtArg]
+RDList      = [SinDeriv, CosSinDeriv, ExpSinCosDeriv, LogArgDeriv, SqrtArgDeriv]
 
-ErrorList = [[], [], [], [], []]
 point     = 0
 
 # build for all needed functions
@@ -49,34 +48,69 @@ point     = 0
 #for everyFkey in range(5):
 
 # 20 point for every derivative approx functions
-for ind in range(20):
-    step = 2**(-ind)
-    # set of approx functions
-    for key in range(5):
-        ErrorList[key].append(fabs( ADList[key](FuncList[4], point, step)\
-                            - RDList[4](point)))
-        #ErrorList[key].append(ADList[key](FuncList[4], point, step)\
-        #                        - RDList[4](point))
-        """
-        ErrorList[1].append(Deriv2(Sin, point, step) - SinDeriv(point))
-        ErrorList[2].append(Deriv3(Sin, point, step) - SinDeriv(point))
-        ErrorList[3].append(Deriv4(Sin, point, step) - SinDeriv(point))
-        ErrorList[4].append(Deriv5(Sin, point, step) - SinDeriv(point))
-        """
 
-#for ind in range(5):
-#    print(ErrorList[ind]) 
+FuncNameList = ['$sin(x^2)$', '$cos(sin(x))$', '$e^{sin(cos(x))}$', '$ln(x+3)$', '$(x+3)^{1/2}$']
 
-plt.xscale("log")
-plt.yscale("log")
+def createFucnStat(funcNum=0, funcName='_Enter_', fileName='stat.jpg'):
+    
+    ErrorList = [[], [], [], [], []]
+    
+    print(RDList[funcNum](point))
 
-x = [2**(-ind) for ind in range(20)]
+    for ind in range(20):
+        step = 2**(-ind)
+        # set of approx functions
+        for key in range(5):
+            ErrorList[key].append(fabs( ADList[key](FuncList[funcNum], point, step)\
+                               - RDList[funcNum](point)))
+            
+            #ErrorList[key].append(ADList[key](FuncList[funcNum], point, step))#\
+            #                        - RDList[funcNum](point))
+            """
+            ErrorList[1].append(Deriv2(Sin, point, step) - SinDeriv(point))
+            ErrorList[2].append(Deriv3(Sin, point, step) - SinDeriv(point))
+            ErrorList[3].append(Deriv4(Sin, point, step) - SinDeriv(point))
+            ErrorList[4].append(Deriv5(Sin, point, step) - SinDeriv(point))
+            """
+
+    #for ind in range(5):
+    #    print(ErrorList[ind]) 
+    plt.figure(figsize=(16/2,9/2))
+    plt.xscale("log")
+    plt.yscale("log")
+
+    x = [2**(-ind) for ind in range(20)]
+
+    for ind in range(5):
+        plt.plot(x, ErrorList[ind], marker='*', markersize=4)
+        #print(ErrorList[ind])
+
+    LegendList = ['$\\frac{f(x+h) - f(x)}{h}$',\
+                
+                '$\\frac{f(x) - f(x-h)}{h}$',\
+                
+                '$\\frac{f(x+h) - f(x-h))}{2h}$',\
+                
+                '$\\frac{4}{3}\\cdot\\frac{f(x+h) - f(x-h))}{2h}\
+                    - \\frac{1}{3}\\cdot\\frac{f(x+2h) - f(x-2h))}{4h}$',\
+                
+                '$\\frac{3}{2}\\cdot\\frac{f(x+h) - f(x-h))}{2h} - \\frac{3}{5}\\cdot\\frac{f(x+2h)\
+                    - f(x-2h))}{4h} + \\frac{1}{10}\\cdot\\frac{f(x+3h) - f(x-3h))}{6h}$'\
+                ]
+
+    plt.legend(LegendList, loc="upper left", fontsize="7")
+    plt.xlabel("h value")
+    plt.ylabel("Error value")
+
+    plt.title("Derivative approx error value for: " + funcName)
+    plt.gca().invert_xaxis()
+    plt.gca().invert_yaxis()
+    #plt.show()
+    
+    plt.savefig(fileName, dpi=500)
+    plt.clf()
+
+Folder = 'img/'
 
 for ind in range(5):
-    plt.plot(x, ErrorList[ind])
-    print(ErrorList[ind])
-
-#plt.legend(['$\pm2\textdegree$'])
-#plt.plot(ErrorList[1])
-#plt.ylabel('some numbers')
-plt.show()
+    createFucnStat(ind, FuncNameList[ind], Folder +'stat'+str(ind)+'.jpg')
