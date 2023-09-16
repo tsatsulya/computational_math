@@ -41,7 +41,7 @@ ADList      = [Deriv1, Deriv2, Deriv3, Deriv4, Deriv5]
 FuncList    = [Sin, CosSin, ExpSinCos, LogArg, SqrtArg]
 RDList      = [SinDeriv, CosSinDeriv, ExpSinCosDeriv, LogArgDeriv, SqrtArgDeriv]
 
-point     = 0
+point     = 2
 
 # build for all needed functions
 
@@ -55,10 +55,13 @@ def createFucnStat(funcNum=0, funcName='_Enter_', fileName='stat.jpg'):
     
     ErrorList = [[], [], [], [], []]
     
+    x = [2**(-ind) for ind in range(20)]
+    #x.append(0)
+
     print(RDList[funcNum](point))
 
-    for ind in range(20):
-        step = 2**(-ind)
+    for ind in range(len(x)):
+        step = x[ind]
         # set of approx functions
         for key in range(5):
             ErrorList[key].append(fabs( ADList[key](FuncList[funcNum], point, step)\
@@ -78,8 +81,6 @@ def createFucnStat(funcNum=0, funcName='_Enter_', fileName='stat.jpg'):
     plt.figure(figsize=(16/2,9/2))
     plt.xscale("log")
     plt.yscale("log")
-
-    x = [2**(-ind) for ind in range(20)]
 
     for ind in range(5):
         plt.plot(x, ErrorList[ind], marker='*', markersize=4)
@@ -102,7 +103,8 @@ def createFucnStat(funcNum=0, funcName='_Enter_', fileName='stat.jpg'):
     plt.xlabel("h value")
     plt.ylabel("Error value")
 
-    plt.title("Derivative approx error value for: " + funcName)
+    #plt.xlim([0,1])
+    plt.title("Derivative approx error value in (x={:.2f}) for: ".format(point) + funcName)
     plt.gca().invert_xaxis()
     plt.gca().invert_yaxis()
     #plt.show()
@@ -110,7 +112,8 @@ def createFucnStat(funcNum=0, funcName='_Enter_', fileName='stat.jpg'):
     plt.savefig(fileName, dpi=500)
     plt.clf()
 
-Folder = 'img/'
+#Folder = 'img/'
+Folder = ''
 
 for ind in range(5):
-    createFucnStat(ind, FuncNameList[ind], Folder +'stat'+str(ind)+'.jpg')
+    createFucnStat(ind, FuncNameList[ind], Folder +'stat'+str(ind)+'p'+str(int(point))+'.jpg')

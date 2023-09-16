@@ -1,4 +1,4 @@
-# Report of 1st Laboratory.
+# Report of 1st Laboratory
 
 ## Methodology
 
@@ -31,10 +31,36 @@ Graphics(around x=0) of these functions you can found below:
 * $\frac{3}{2}\cdot\frac{f(x+h) - f(x-h)}{2h} - \frac{3}{5}\cdot\frac{f(x+2h)\ - f(x-2h)}{4h} + \frac{1}{10}\cdot\frac{f(x+3h) - f(x-3h)}{6h}$
 
 ## Results:
-#### All results present below and calculated for x = 0. 
+
+#### Results present below and calculated for x = 2.
+
+![](img/p2/stat0p2.jpg)
+>[Back to Methodology](#methodology)
+
+![](img/p2/stat1p2.jpg)
+>[Back to Methodology](#methodology)
+
+![](img/p2/stat2p2.jpg)
+>[Back to Methodology](#methodology)
+
+![](img/p2/stat3p2.jpg)
+>[Back to Methodology](#methodology)
+
+![](img/p2/stat4p2.jpg)
+>[Back to Methodology](#methodology)
+#### Results present below and calculated for x = 0. 
 
 ![](img/stat0.jpg)
+>[Back to Methodology](#methodology)
+
 ![](img/stat1.jpg)
+>[Back to Methodology](#methodology)
+
 ![](img/stat2.jpg)
+>[Back to Methodology](#methodology)
+
 ![](img/stat3.jpg)
+>[Back to Methodology](#methodology)
+
 ![](img/stat4.jpg)
+>[Back to Methodology](#methodology)
