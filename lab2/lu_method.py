@@ -1,7 +1,7 @@
 import numpy as np
 from scipy.linalg import lu
 from matrix_init import _initMatrix_, _initValue_,\
-                         DEBUG, getErrorMatrixNorm
+                         DEBUG, printErrorNorm
 
 # Define a square matrix A
 A = np.array(_initMatrix_())
@@ -28,6 +28,10 @@ else:
 
 A_list = A.tolist()
 value_list = _initValue_()
+
+printErrorNorm(A_list, x, value_list)
+
+"""
 error_list = []
 
 for ind in range(len(A_list)):
@@ -36,3 +40,4 @@ for ind in range(len(A_list)):
 print('Error vector:', error_list)
 
 print('Error norm value:{:.2e}'.format(getErrorMatrixNorm(error_list)))
+"""
