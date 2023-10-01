@@ -18,21 +18,25 @@ This work also uses Gauss and LU decomposition methods.
 #### System of equations:
 
 $$
-\begin{cases} 
-b_1 x_1 + c_1 x_2 = f_1 \\
-a_2 x_1 + b_2 x_2 + c_2 x_3 = f_2 \\
-a_3 x_1 + b_3 x_2 + c_3 x_3 = f_3 \\
-... \\
-a_n x_{n-1} + b_n x_n + c_n x_{n+1} = f_n \\
-p_1 x_1 + ... + p_{n+1} x_{n+1} = f_{n+1} \\
-\begin{cases}
-n = 99 \\
-a_i = c_i = 1 \\
-b_i = 10 \\
-p_i = 1 \\
-f_i = i
-\end{cases}
-\end{cases}
+\begin{flalign}
+&
+  \begin{cases} 
+  b_1 x_1 + c_1 x_2 = f_1 \\
+  a_2 x_1 + b_2 x_2 + c_2 x_3 = f_2 \\
+  a_3 x_1 + b_3 x_2 + c_3 x_3 = f_3 \\
+  ... \\
+  a_n x_{n-1} + b_n x_n + c_n x_{n+1} = f_n \\
+  p_1 x_1 + ... + p_{n+1} x_{n+1} = f_{n+1} \\
+    \begin{cases}
+    n = 99 \\
+    a_i = c_i = 1 \\
+    b_i = 10 \\
+    p_i = 1 \\
+    f_i = i
+    \end{cases}
+  \end{cases}
+&
+\end{flalign}
 $$
 
 #### Conclusion:
@@ -45,11 +49,23 @@ $$
 | Jacobi     | $\sigma_{J}  = 8.87 \cdot 10^{-9}$  |        28        |
 | Relaxation | $\sigma_{R}  = 8.92 \cdot 10^{-9}$  |        53        |
 
-$$\text{If } b = Ax, \text{than}:$$
+$$
+\begin{flalign}
+  & \text{If } b = Ax, \text{than}: &
+\end{flalign}
+$$
 
-$$\text{Error rate(norm)}  = E_i = \parallel b - Ax_{i}\parallel_{3} = ((b - Ax_{i}) \cdot (b - Ax_{i})) = \sum_{k} \zeta_k^2$$
+$$
+\begin{flalign}
+  & \text{Error rate(norm)}  = E_i = \parallel b - Ax_{i}\parallel_{3} = ((b - Ax_{i}) \cdot (b - Ax_{i})) = \sum_{k} \zeta_k^2 &
+\end{flalign}
+$$
 
-$$k, i \in \mathbb{N}$$
+$$
+\begin{flalign}
+  & k, i \in \mathbb{N} &
+\end{flalign}
+$$
 
 >[Back to Methodology](#methodology)
 
