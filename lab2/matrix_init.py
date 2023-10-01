@@ -9,7 +9,7 @@ def DEBUG(param, description='NULL'):
 def setAllZero(matrix, n, ind):
     matrix[ind].extend([0]*(n-ind-1))
 
-def _initMatrix_(n=3, a=1, b=5, c=1, p=1):
+def _initMatrix_(n=99, a=1, b=10, c=1, p=1):
     matrix = []
     
     for ind in range( n ):
@@ -27,10 +27,10 @@ def _initMatrix_(n=3, a=1, b=5, c=1, p=1):
     
     return matrix
 
-def _initValue_(n=3):
+def _initValue_(n=99):
     return [ ind+1 for ind in range( n+1 )]
 
-def initMatrix(n=3, a=1, b=5, c=1, p=1):
+def initMatrix(n=99, a=1, b=10, c=1, p=1):
     
     matrix = _initMatrix_(n, a, b, c, p)
     

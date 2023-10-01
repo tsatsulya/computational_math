@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 from matrix_init import _initMatrix_, _initValue_, m_getErrorMatrixNorm,\
                         builPlot
 
+SIGMA = 1e-8
+
 ITERATION_LIMIT = 1000
 
 all_errors_list = []
@@ -33,7 +35,8 @@ for it_count in range(1, ITERATION_LIMIT):
         s2 = np.dot(A[i, i + 1 :], x[i + 1 :])
         x_new[i] = (b[i] - s1 - s2) / A[i, i]
     
-    if np.allclose(x, x_new, rtol=1e-8):
+    #if np.allclose(x, x_new, SIGMA=1e-8):
+    if m_getErrorMatrixNorm(A, x, b) <= SIGMA:
         break
     
     x = x_new
@@ -48,5 +51,4 @@ plt.show()
 builPlot(all_errors_list, 'seidel')
 
 print(f"Solution: {x}")
-error = np.dot(A, x) - b
-print(f'error value:{error}')
+print(f'error value:{m_getErrorMatrixNorm(A, x, b)}')

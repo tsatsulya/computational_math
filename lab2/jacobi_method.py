@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 from matrix_init import _initMatrix_, _initValue_
 from matrix_init import m_getErrorMatrixNorm, builPlot
 
+SIGMA = 1e-8
+
 ITERATION_LIMIT = 1000
 
 all_errors_list = []
@@ -36,7 +38,8 @@ for it_count in range(ITERATION_LIMIT):
         if x_new[i] == x_new[i-1]:
           break
 
-    if np.allclose(x, x_new, atol=1e-8, rtol=0.):
+    #if np.allclose(x, x_new, atol=1e-8, rtol=0.):
+    if m_getErrorMatrixNorm(A, x, b) <= SIGMA:
         break
 
     x = x_new
@@ -51,7 +54,6 @@ plt.show()
 builPlot(all_errors_list, 'jacobi')
 
 print(f"Solution: {x}")
-error = np.dot(A, x) - b
-print(f'error value:{error}')
+print(f'error value:{m_getErrorMatrixNorm(A, x, b)}')
 
 

@@ -4,7 +4,7 @@ from scipy import linalg
 from matrix_init import _initMatrix_, _initValue_, m_getErrorMatrixNorm,\
                         builPlot
 
-residual_convergence = 1e-8
+SIGMA = 1e-8
 
 def sor_solver(A, b, omega, initial_guess, convergence_criteria):
     """
@@ -20,7 +20,8 @@ def sor_solver(A, b, omega, initial_guess, convergence_criteria):
     """
     step = 0
     phi = initial_guess[:]
-    residual = linalg.norm(A @ phi - b)  # Initial residual
+    
+    residual = m_getErrorMatrixNorm(A, initial_guess, b)#linalg.norm(A @ phi - b)  # Initial residual
     
     all_errors_list = []
     
@@ -53,7 +54,9 @@ b = np.array(_initValue_())
 
 initial_guess = np.zeros_like(b, np.float_)
 
-phi = sor_solver(A, b, omega, initial_guess, residual_convergence)
-print(phi)
+phi = sor_solver(A, b, omega, initial_guess, SIGMA)
+
+print(f"Solution: {phi}")
+print(f'error value:{m_getErrorMatrixNorm(A, phi, b)}')
 
 
