@@ -1,4 +1,6 @@
 from math import sqrt
+import numpy as np
+import matplotlib.pyplot as plt
 
 def DEBUG(param, description='NULL'):
     #print(description, param)
@@ -50,3 +52,29 @@ def printErrorNorm(matrix_list, x, value_list):
     print('Error vector:', error_list)
 
     print('Error norm value:{:.2e}'.format(getErrorMatrixNorm(error_list)))
+
+def m_getErrorMatrixNorm(A, x, b):
+    error = np.dot(A, x) - b
+    #print(f'error value:{error}')
+    return getErrorMatrixNorm(error.tolist())
+
+def builPlot(all_errors_list, name='plot', folder='img/', dpi=500, show=False):
+    
+    fileName = name + '.jpg'
+
+    plt.figure(figsize=(16/2,9/2))
+    plt.plot(all_errors_list)
+    
+    plt.xlim([0, len(all_errors_list)])
+    plt.ylim([0, max(all_errors_list)])
+
+    plt.grid(linestyle = '--', linewidth = 0.5)
+
+    plt.xlabel("iterations number")
+    plt.title(name + ' method discrepancy')
+    
+    if show != False:
+        plt.show()
+    
+    plt.savefig(folder + fileName, dpi=500)
+    plt.clf()
