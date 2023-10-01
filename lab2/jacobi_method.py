@@ -36,7 +36,7 @@ for it_count in range(ITERATION_LIMIT):
         if x_new[i] == x_new[i-1]:
           break
 
-    if np.allclose(x, x_new, atol=1e-10, rtol=0.):
+    if np.allclose(x, x_new, atol=1e-8, rtol=0.):
         break
 
     x = x_new
