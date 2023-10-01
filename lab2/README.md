@@ -57,7 +57,7 @@ $$
 
 $$
 \begin{flalign}
-  & \text{Error rate(norm)}  = E_i = \parallel b - Ax_{i}\parallel_{3} = ((b - Ax_{i}) \cdot (b - Ax_{i})) = \sum_{k} \zeta_k^2 &
+  & \text{Error rate(norm)}  = E_i = \parallel b - Ax_{i}\parallel_{3} = \sqrt{((b - Ax_{i}) \cdot (b - Ax_{i}))} = \sqrt{\sum_{k} \zeta_k^2} &
 \end{flalign}
 $$
 
