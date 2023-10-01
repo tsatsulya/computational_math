@@ -36,7 +36,6 @@ f_i = i
 $$
 
 #### Conclusion:
-Error values
 
 | Method     |             Error rate              | Iteration number |
 | :--------- | :---------------------------------: | :--------------: |
@@ -46,10 +45,9 @@ Error values
 | Jacobi     | $\sigma_{J}  = 8.87 \cdot 10^{-9}$  |        28        |
 | Relaxation | $\sigma_{R}  = 8.92 \cdot 10^{-9}$  |        53        |
 
-If $b = Ax$, than:
+$$\text{If } b = Ax, \text{than}:$$
 
-$$\text{Error rate(norm)}  = E_i = \| b - Ax_{i}\|_3 = \newline
-= ((b - Ax_{i}) \cdot (b - Ax_{i})) = \sum_{k} \zeta_k^2$$
+$$\text{Error rate(norm)}  = E_i = \parallel b - Ax_{i}\parallel_{3} = ((b - Ax_{i}) \cdot (b - Ax_{i})) = \sum_{k} \zeta_k^2$$
 
 $$k, i \in \mathbb{N}$$
 
