@@ -75,6 +75,7 @@ To find maximum $\lambda$ of $A$ using power iteration method:
 
 To find minimum $\lambda$ of $A$ using the same method, but for new $B$ matrix
 (this method is defined for a sign-defined matrix):
+
 ![](../src/l2/b_matrix.svg)
 
 >[Back to Methodology](#methodology)
@@ -86,3 +87,5 @@ To find minimum $\lambda$ of $A$ using the same method, but for new $B$ matrix
 >[Back to Methodology](#methodology)
 
 ![](img/lambda.jpg)
+
+>[Back to Methodology](#methodology)
