@@ -67,6 +67,12 @@ $$
 \end{flalign}
 $$
 
+#### Additionally
+
+To find maximum $\lambda$ of $A$ using power iteration method:
+
+![](../src/l2.svg)
+
 >[Back to Methodology](#methodology)
 
 ![](img/seidel.jpg)
@@ -74,3 +80,5 @@ $$
 ![](img/relaxation.jpg)
 
 >[Back to Methodology](#methodology)
+
+![](img/lambda.jpg)
