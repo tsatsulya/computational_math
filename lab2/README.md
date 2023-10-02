@@ -71,7 +71,11 @@ $$
 
 To find maximum $\lambda$ of $A$ using power iteration method:
 
-![](../src/l2.svg)
+![](../src/l2/l2.svg)
+
+To find minimum $\lambda$ of $A$ using the same method, but for new B matrix:
+
+![](../src/l2/b_matrix.svg)
 
 >[Back to Methodology](#methodology)
 

@@ -4,6 +4,10 @@ import math
 from matrix_init import _initMatrix_, _initValue_, m_getErrorMatrixNorm,\
                         builPlot
 
+def isPosDef(x):
+    return np.all(np.linalg.eigvals(x) > 0)
+
+
 SIGMA = 1e-8
 
 ITERATION_LIMIT = 100
@@ -33,11 +37,44 @@ for it_count in range(1, ITERATION_LIMIT):
 
     x = x_new
 
+"""
+print(np.dot(A, x))
+print(np.dot(lambda_list[-1], x))
+"""
+
+max_l = lambda_list[-1]
+
+# print(isPosDef(A))
+
+E = np.eye(len(A))
+
+min_lambda_list = []
+
+B = np.dot(max_l, E) - A
+
+for it_count in range(1, ITERATION_LIMIT):
+    
+    #x_new = np.zeros_like(x, dtype=np.float_)
+    
+    x_new = np.dot(B, x) / math.sqrt(np.dot(np.dot(B, x), np.dot(B, x)))
+
+    lambd = np.dot(np.dot(B, x), x) / np.dot(x, x)
+
+    #print(lambd)
+    
+    min_lambda_list.append(lambd)
+
+    x = x_new
+
+"""
+print(np.dot(A, x))
+print(np.dot(min_lambda_list[-1], x))
+"""
 
 plt.figure(figsize=(16/2,9/2))
 plt.plot(lambda_list)
-plt.title('find lambda value via power iteration method')
-
+plt.plot(min_lambda_list)
+plt.title('find min and max lambda value via power iteration method')
 
 plt.grid(linestyle = '--', linewidth = 0.5)
 
