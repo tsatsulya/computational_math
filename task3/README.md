@@ -6,20 +6,6 @@
 pip install sympy
 ```
 
-#### Single equations:
-
-$$
-2x^2 - 5x + 3 = 0
-$$
-
-![](img/root.jpg)
-
-![](img/root_.jpg)
-
-| Method    |   Found root   |
-| :-------- | :------------: |
-| Iterative | $1.0\pm\sigma$ |
-| Newton's  | $1.0\pm\sigma$ |
 
 
 #### System of equations:
@@ -39,4 +25,20 @@ $$
 ![](img/iterative_method_for_systems.jpg)
 
 ![](img/newton_method_for_systems.jpg)
+
+
+#### Single equation:
+
+$$
+2x^2 - 5x + 3 = 0
+$$
+
+![](img/root.jpg)
+
+![](img/root_.jpg)
+
+| Method    |   Found root   |
+| :-------- | :------------: |
+| Iterative | $1.0\pm\sigma$ |
+| Newton's  | $1.0\pm\sigma$ |
 
