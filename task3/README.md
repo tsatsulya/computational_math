@@ -1,4 +1,5 @@
-# Task 3
+# Report of 3rd Laboratory
+
 
 ### Please install sympy first
 ``` bash
