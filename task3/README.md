@@ -8,7 +8,7 @@ pip install sympy
 
 
 
-#### System of equations:
+## System of equations:
 
 $$
   \begin{cases} 
@@ -27,7 +27,8 @@ $$
 ![](img/newton_method_for_systems.jpg)
 
 
-#### Single equation:
+<br></br><br></br>
+## Single equation:
 
 $$
 2x^2 - 5x + 3 = 0
@@ -39,6 +40,6 @@ $$
 
 | Method    |   Found root   |
 | :-------- | :------------: |
-| Iterative | $1.0\pm\sigma$ |
-| Newton's  | $1.0\pm\sigma$ |
+| Iterative | $1.0$ |
+| Newton's  | $1.0$|
 
